@@ -49,4 +49,16 @@ class UserDBViewModel(application: Application) : AndroidViewModel(application) 
         return repository.searchDatabase(searchQuery)
     }
 
+    fun searchNoDuplicateOnNameBased(): LiveData<List<UserTable>>{
+        return repository.searchNoDuplicateOnNameBased()
+    }
+
+    fun searchOnNameAndPhone(searchQuery: String, phone: String): LiveData<List<UserTable>>{
+        return repository.searchOnNameAndPhone(searchQuery, phone)
+    }
+
+
+
+
+
 }

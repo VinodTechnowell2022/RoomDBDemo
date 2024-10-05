@@ -75,6 +75,9 @@ dependencies {
     implementation(libs.androidx.lifecycle.livedata)
     implementation(libs.androidx.lifecycle.viewmodel)
     implementation(libs.androidx.multidex)
+    implementation(libs.sdp.android)
+    implementation(libs.ssp.android)
+    implementation(libs.androidx.swiperefreshlayout)
     kapt("androidx.room:room-compiler:2.7.0-alpha08")
     androidTestImplementation ("androidx.room:room-testing:$rootProject.roomVersion")
 

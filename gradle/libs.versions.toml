@@ -19,6 +19,9 @@ roomKtx = "2.7.0-alpha08"
 roomRuntime = "2.7.0-alpha08"
 roomCompiler = "2.7.0-alpha08"
 compiler = "1.1.1"
+sdpAndroid = "1.1.1"
+sspAndroid = "1.1.1"
+swiperefreshlayout = "1.1.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -46,6 +49,9 @@ androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-view
 androidx-lifecycle-livedata = { group = "androidx.lifecycle", name = "lifecycle-livedata", version.ref = "lifecycleLivedata" }
 androidx-lifecycle-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel", version.ref = "lifecycleViewmodel" }
 androidx-multidex = { group = "androidx.multidex", name = "multidex", version.ref = "multidex" }
+sdp-android = { group = "com.intuit.sdp", name = "sdp-android", version.ref = "sdpAndroid" }
+ssp-android = { group = "com.intuit.ssp", name = "ssp-android", version.ref = "sspAndroid" }
+androidx-swiperefreshlayout = { group = "androidx.swiperefreshlayout", name = "swiperefreshlayout", version.ref = "swiperefreshlayout" }
 
 
 [plugins]

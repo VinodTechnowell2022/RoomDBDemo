@@ -28,4 +28,16 @@ class UserRepository(private val toDoDao: UserDao) {
         return toDoDao.searchDatabase(searchQuery)
     }
 
+    fun searchNoDuplicateOnNameBased(): LiveData<List<UserTable>> {
+        return toDoDao.searchNoDuplicateOnNameBased()
+    }
+
+    fun searchOnNameAndPhone(searchQuery: String, phone: String): LiveData<List<UserTable>> {
+        return toDoDao.searchOnNameAndPhone(searchQuery, phone)
+    }
+
+
+
+
+
 }

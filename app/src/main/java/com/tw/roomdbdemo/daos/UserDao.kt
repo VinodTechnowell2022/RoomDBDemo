@@ -22,7 +22,13 @@ interface UserDao {
     @Query("DELETE FROM user_table")
     suspend fun deleteAll()
 
+//    @Query("SELECT * FROM user_table WHERE name LIKE '%' || :searchQuery || '%'")
     @Query("SELECT * FROM user_table WHERE name LIKE :searchQuery")
     fun searchDatabase(searchQuery: String): LiveData<List<UserTable>>
 
+    @Query("Select * from user_table  GROUP BY name, email" )
+    fun searchNoDuplicateOnNameBased(): LiveData<List<UserTable>>
+
+    @Query("SELECT * FROM user_table WHERE name= :name AND phone= :phone")
+    fun searchOnNameAndPhone(name: String, phone: String): LiveData<List<UserTable>>
 }
