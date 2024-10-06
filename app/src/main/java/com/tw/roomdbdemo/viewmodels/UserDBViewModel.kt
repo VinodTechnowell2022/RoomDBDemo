@@ -57,6 +57,10 @@ class UserDBViewModel(application: Application) : AndroidViewModel(application) 
         return repository.searchOnNameAndPhone(searchQuery, phone)
     }
 
+    fun searchOnNameAndEmailAndPhoneList(name: String,  phoneList: List<String>): LiveData<List<UserTable>>{
+        return repository.searchOnNameAndEmailAndPhoneList(name, phoneList)
+    }
+
 
 
 

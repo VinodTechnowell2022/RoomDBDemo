@@ -31,4 +31,7 @@ interface UserDao {
 
     @Query("SELECT * FROM user_table WHERE name= :name AND phone= :phone")
     fun searchOnNameAndPhone(name: String, phone: String): LiveData<List<UserTable>>
+
+    @Query("SELECT * FROM user_table WHERE name= :name AND phone IN (:phoneList)" )
+    fun searchOnNameAndEmailAndPhoneList(name: String, phoneList: List<String>): LiveData<List<UserTable>>
 }

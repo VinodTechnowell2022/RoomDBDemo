@@ -79,7 +79,7 @@ dependencies {
     implementation(libs.ssp.android)
     implementation(libs.androidx.swiperefreshlayout)
     kapt("androidx.room:room-compiler:2.7.0-alpha08")
-    androidTestImplementation ("androidx.room:room-testing:$rootProject.roomVersion")
+
 
     implementation (libs.androidx.lifecycle.viewmodel.ktx)
     implementation (libs.androidx.lifecycle.livedata.ktx)
@@ -89,6 +89,13 @@ dependencies {
     implementation (libs.kotlin.stdlib.jdk7)
     api ("org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.coroutines")
     api (libs.kotlinx.coroutines.android)
+
+    // Navigation Component
+    implementation (libs.androidx.navigation.fragment.ktx)
+    implementation (libs.androidx.navigation.ui.ktx)
+
+    implementation (libs.glide)
+    kapt (libs.glide.compiler)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

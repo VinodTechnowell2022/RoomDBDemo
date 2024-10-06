@@ -36,6 +36,12 @@ class UserRepository(private val toDoDao: UserDao) {
         return toDoDao.searchOnNameAndPhone(searchQuery, phone)
     }
 
+    fun searchOnNameAndEmailAndPhoneList(name: String, phoneList: List<String>): LiveData<List<UserTable>> {
+        return toDoDao.searchOnNameAndEmailAndPhoneList(name, phoneList)
+    }
+
+
+
 
 
 

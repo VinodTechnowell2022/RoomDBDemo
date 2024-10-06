@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity(), UsersAdapter.OnItemClickListener {
     val TAG : String = this.javaClass.simpleName
     private val userDBViewModel: UserDBViewModel by viewModels()
     lateinit var binding: ActivityMainBinding
+    val optionList: MutableList<String> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,7 +45,14 @@ class MainActivity : AppCompatActivity(), UsersAdapter.OnItemClickListener {
         textChangeListener()
 
         binding.ivGroupBy.setOnClickListener {
-            userDBViewModel.searchOnNameAndPhone("Binny", "9876543210").observe(this@MainActivity) { it->
+            optionList.clear()
+            optionList.add("8790654321")
+            optionList.add("9876543210")
+            optionList.add("9988776655")
+
+            val name = "Binny"
+
+            userDBViewModel.searchOnNameAndEmailAndPhoneList( name, optionList.toList() ).observe(this@MainActivity) { it->
 
                 searchUsersData(it)
             }
