@@ -45,17 +45,28 @@ class MainActivity : AppCompatActivity(), UsersAdapter.OnItemClickListener {
         textChangeListener()
 
         binding.ivGroupBy.setOnClickListener {
-            optionList.clear()
-            optionList.add("8790654321")
-            optionList.add("9876543210")
-            optionList.add("9988776655")
 
-            val name = "Binny"
-
-            userDBViewModel.searchOnNameAndEmailAndPhoneList( name, optionList.toList() ).observe(this@MainActivity) { it->
-
+            userDBViewModel.getAllUsersBetweenAge(18, 28).observe(this@MainActivity) { it->
                 searchUsersData(it)
             }
+
+//            userDBViewModel.getAllUsersOlderThan(20).observe(this@MainActivity) { it->
+//                searchUsersData(it)
+//            }
+
+
+
+//            optionList.clear()
+//            optionList.add("8790654321")
+//            optionList.add("9876543210")
+//            optionList.add("9988776655")
+//
+//            val name = "Binny"
+//
+//            userDBViewModel.searchOnNameAndEmailAndPhoneList( name, optionList.toList() ).observe(this@MainActivity) { it->
+//                searchUsersData(it)
+//            }
+
         }
     }
 
@@ -109,21 +120,25 @@ class MainActivity : AppCompatActivity(), UsersAdapter.OnItemClickListener {
         val etName: EditText = dialog.findViewById(R.id.etName)
         val etEmail: EditText = dialog.findViewById(R.id.etEmail)
         val etPhone: EditText = dialog.findViewById(R.id.etPhone)
+        val etAge: EditText = dialog.findViewById(R.id.etAge)
 
         tvSave.setOnClickListener {
 
             val name = etName.text.toString()
             val email = etEmail.text.toString()
             val phone = etPhone.text.toString()
+            val age = etAge.text.toString()
             if (name.isNullOrEmpty()){
                 Toast.makeText(this@MainActivity, "Please enter name", Toast.LENGTH_SHORT).show()
             }else if (email.isNullOrEmpty()){
                 Toast.makeText(this@MainActivity, "Please enter email", Toast.LENGTH_SHORT).show()
             }else if (phone.isNullOrEmpty()){
                 Toast.makeText(this@MainActivity, "Please enter phone", Toast.LENGTH_SHORT).show()
+            }else if (age.isNullOrEmpty()){
+                Toast.makeText(this@MainActivity, "Please enter age", Toast.LENGTH_SHORT).show()
             }else{
                 dialog.dismiss()
-                val data = UserTable(0, name, email, phone)
+                val data = UserTable(0, name, email, phone, age.toInt())
                 userDBViewModel.insertData(data)
                 refreshScreen()
             }
@@ -170,25 +185,30 @@ class MainActivity : AppCompatActivity(), UsersAdapter.OnItemClickListener {
         val etName: EditText = dialog.findViewById(R.id.etName)
         val etEmail: EditText = dialog.findViewById(R.id.etEmail)
         val etPhone: EditText = dialog.findViewById(R.id.etPhone)
+        val etAge: EditText = dialog.findViewById(R.id.etAge)
 
         etName.setText(data.name)
         etEmail.setText(data.email)
         etPhone.setText(data.phone)
+        etAge.setText(data.age)
 
         tvSave.setOnClickListener {
 
             val name = etName.text.toString()
             val email = etEmail.text.toString()
             val phone = etPhone.text.toString()
+            val age = etAge.text.toString()
             if (name.isNullOrEmpty()){
                 Toast.makeText(this@MainActivity, "Please enter name", Toast.LENGTH_SHORT).show()
             }else if (email.isNullOrEmpty()){
                 Toast.makeText(this@MainActivity, "Please enter email", Toast.LENGTH_SHORT).show()
             }else if (phone.isNullOrEmpty()){
                 Toast.makeText(this@MainActivity, "Please enter phone", Toast.LENGTH_SHORT).show()
+            }else if (age.isNullOrEmpty()){
+                Toast.makeText(this@MainActivity, "Please enter age", Toast.LENGTH_SHORT).show()
             }else{
                 dialog.dismiss()
-                val data = UserTable(data.id, name, email, phone)
+                val data = UserTable(data.id, name, email, phone, age.toInt())
                 userDBViewModel.updateData(data)
                 refreshScreen()
             }

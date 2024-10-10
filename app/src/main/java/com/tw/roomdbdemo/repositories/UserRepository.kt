@@ -40,9 +40,13 @@ class UserRepository(private val toDoDao: UserDao) {
         return toDoDao.searchOnNameAndEmailAndPhoneList(name, phoneList)
     }
 
+    fun getAllUsersOlderThan(minAge:Int): LiveData<List<UserTable>> {
+        return toDoDao.getAllUsersOlderThan(minAge)
+    }
 
-
-
+    fun getAllUsersBetweenAge(minAge: Int, maxAge:Int): LiveData<List<UserTable>> {
+        return toDoDao.getAllUsersBetweenAge(minAge, maxAge)
+    }
 
 
 

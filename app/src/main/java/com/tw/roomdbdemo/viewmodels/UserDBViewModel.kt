@@ -61,8 +61,13 @@ class UserDBViewModel(application: Application) : AndroidViewModel(application) 
         return repository.searchOnNameAndEmailAndPhoneList(name, phoneList)
     }
 
+    fun getAllUsersOlderThan(minAge: Int): LiveData<List<UserTable>>{
+        return repository.getAllUsersOlderThan(minAge)
+    }
 
-
+    fun getAllUsersBetweenAge(minAge: Int, maxAge:Int): LiveData<List<UserTable>>{
+        return repository.getAllUsersBetweenAge(minAge, maxAge)
+    }
 
 
 }

@@ -16,10 +16,12 @@ data class UserTable(
 
     var email: String,
 
-    var phone: String
+    var phone: String,
+
+    var age: Int
 
 ): Parcelable {
     override fun toString(): String {
-        return "\nToDoData(id=$id, name='$name', email=$email, phone='$phone')"
+        return "\nToDoData(id=$id, name='$name', email=$email, phone='$phone', age=$age)"
     }
 }

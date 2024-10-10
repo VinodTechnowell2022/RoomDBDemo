@@ -36,7 +36,7 @@ class UsersAdapter : RecyclerView.Adapter<UsersAdapter.CustomVH>() {
     override fun onBindViewHolder(holder: CustomVH, position: Int) {
         val data = todosList[holder.adapterPosition]
 
-        holder.binding.tvName.text = data!!.name
+        holder.binding.tvName.text = data!!.name + " (" + data.age+")"
         holder.binding.tvPhone.text = data.phone
         holder.binding.tvEmail.text = data.email
 
